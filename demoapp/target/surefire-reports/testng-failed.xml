@@ -6,7 +6,7 @@
       <class name="com.example.selenium.JoyTest">
         <methods>
           <include name="setUp"/>
-          <include name="testFormSubmission"/>
+          <include name="testRegisterFormSubmission"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.example.selenium.JoyTest -->

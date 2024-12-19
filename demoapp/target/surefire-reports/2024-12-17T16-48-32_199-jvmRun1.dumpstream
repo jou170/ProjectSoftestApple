@@ -1,0 +1,17 @@
+# Created at 2024-12-17T16:49:03.825
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:398)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+
+
+# Created at 2024-12-17T16:49:07.405
+Unexpected IOException: 8,1,com.example.selenium.JoyTest,testFormSubmission(com.example.selenium.JoyTest),null,Expected condition failed: waiting for presence of element located by: By.cssSelector: #create-link (tried for 20 second(s) with 500 milliseconds interval),null,Expected condition failed: waiting for presence of element located by: By.cssSelector: #create-link (tried for 20 second(s) with 500 milliseconds interval),JoyTest.testFormSubmission:33->navigateRegisterForm:72 \00BB Timeout Expected cond...,org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.cssSelector: #create-link (tried for 20 second(s) with 500 milliseconds interval)\000A\0009at com.example.selenium.JoyTest.navigateRegisterForm(JoyTest.java:72)\000A\0009at com.example.selenium.JoyTest.testFormSubmission(JoyTest.java:33)\000ACaused by: org.openqa.selenium.NoSuchElementException: \000Ano such element: Unable to locate element: {"method":"css selector"\002C"selector":"#create-link"}\000A  (Session info: chrome=131.0.6778.140)\000AFor documentation on this error\002C please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception\000ABuild info: version: '4.27.0'\002C revision: 'd6e718d134'\000ASystem info: os.name: 'Windows 11'\002C os.arch: 'amd64'\002C os.version: '10.0'\002C java.version: '19.0.2'\000ADriver info: org.openqa.selenium.chrome.ChromeDriver\000ACommand: [ba3d079042651f999a1d3ec5eac8af1a\002C findElement {using=css selector\002C value=#create-link}]\000ACapabilities {acceptInsecureCerts: false\002C browserName: chrome\002C browserVersion: 131.0.6778.140\002C chrome: {chromedriverVersion: 131.0.6778.108 (3b014839fbc...\002C userDataDir: C:\005CUsers\005CLenovo\005CAppData\005CLoc...}\002C fedcm:accounts: true\002C goog:chromeOptions: {debuggerAddress: localhost:52154}\002C networkConnectionEnabled: false\002C pageLoadStrategy: normal\002C platformName: windows\002C proxy: Proxy()\002C se:cdp: ws://localhost:52154/devtoo...\002C se:cdpVersion: 131.0.6778.140\002C setWindowRect: true\002C strictFileInteractability: false\002C timeouts: {implicit: 0\002C pageLoad: 300000\002C script: 30000}\002C unhandledPromptBehavior: dismiss and notify\002C webauthn:extension:credBlob: true\002C webauthn:extension:largeBlob: true\002C webauthn:extension:minPinLength: true\002C webauthn:extension:prf: true\002C webauthn:virtualAuthenticators: true}\000ASession ID: ba3d079042651f999a1d3ec5eac8af1a\000A\0009at com.example.selenium.JoyTest.navigateRegisterForm(JoyTest.java:72)\000A\0009at com.example.selenium.JoyTest.testFormSubmission(JoyTest.java:33)\000A
+
+
+# Created at 2024-12-17T16:49:07.897
+Unexpected IOException: 2,1,org.apache.maven.surefire.testng.TestNGDirectoryTestSuite,TestSuite,null,null,null
+
+

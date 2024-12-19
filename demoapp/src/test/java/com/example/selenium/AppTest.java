@@ -2,41 +2,42 @@ package com.example.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    public App app;
+public class AppTest {
+
+    private App app;
     /**
      * Rigorous Test :-)
      */
-
-    @BeforeTest
-    public void setUp()
-    {
-        // app = new App();
-        // app.openURL("https://trytestingthis.netlify.app/");
+    @BeforeClass
+    @Description("Set up browser dan buka aplikasi melalui url")
+    public void setUp(){
+        app = new App();
+        app.openURL("https://trytestingthis.netlify.app/");
     }
 
     @Test
-    public void testFormSubmission()
-    {
-        // formFill("test", "test");
-        // verifySuccessMessage();
-        // tearDown();
+    @Feature("Submit Form")
+    public void testFormSubmission() {
+        formFill("test", "test");
+        verifySuccessMessage();
     }
 
-    private  void formFill(String uname, String pwd)
-    {
-        WebElement usernameField = app.getDriver().findElement(By.id("uname"));
-        WebElement passwordField = app.getDriver().findElement(By.id("pwd"));
+    @Step("Isi form dengan Username:{uname} dan Password:{pwd}")
+    private void formFill(String uname, String pwd){
+        WebElement usernameField=app.getDriver().findElement(By.id("uname"));
+        WebElement passwordField=app.getDriver().findElement(By.id("pwd"));
 
         usernameField.sendKeys(uname);
         passwordField.sendKeys(pwd);
@@ -44,16 +45,15 @@ public class AppTest
         app.getDriver().findElement(By.cssSelector("input[type='submit']")).click();
     }
 
-    private void verifySuccessMessage()
-    {
-        WebElement successMessage = app.getDriver().findElement(By.cssSelector("h2"));
-
-        Assert.assertTrue(successMessage.getText().contains("Login Successful"), "Failed");
+    @Step("Verifikasi pesan sukses")
+    private void verifySuccessMessage(){
+        WebElement successMessage=app.getDriver().findElement(By.cssSelector("body > div.main > h2"));
+        Assert.assertTrue(successMessage.getText().contains("Login Successful"),"Failed");
     }
 
-    @AfterTest
-    public void tearDown()
-    {
-        // app.closeBrowser();
+    @AfterClass
+    @Description("Tutup browser")
+    public void tearDown(){
+        app.closeBrowser();
     }
 }
