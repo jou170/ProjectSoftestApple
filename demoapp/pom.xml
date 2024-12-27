@@ -48,6 +48,12 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+        <groupId>net.sourceforge.tess4j</groupId>
+        <artifactId>tess4j</artifactId>
+        <version>5.13.0</version>
+    </dependency>
+
     <!-- Boni Garcia WebDriverManager -->
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
