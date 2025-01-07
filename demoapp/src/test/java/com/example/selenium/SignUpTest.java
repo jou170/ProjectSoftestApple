@@ -364,19 +364,20 @@ public class SignUpTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement fieldElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         fieldElement.click();
-        // Mengetik cepat karakter
-        fieldElement.sendKeys(value);
+
+        
+        // fieldElement.sendKeys(value); // Mengetik cepat karakter
 
 
         // Mengetik satu per satu karakter dengan delay
-        // for (char c : value.toCharArray()) {
-        //     fieldElement.sendKeys(Character.toString(c)); // Kirim karakter satu per satu
-        //     try {
-        //         Thread.sleep((long) (Math.random() * 100)); // Penundaan 100-400 ms
-        //     } catch (InterruptedException e) {
-        //         Thread.currentThread().interrupt();
-        //     }
-        // }
+        for (char c : value.toCharArray()) {
+            fieldElement.sendKeys(Character.toString(c)); // Kirim karakter satu per satu
+            try {
+                Thread.sleep((long) (Math.random() * 100)); // Penundaan 100-400 ms
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
         System.out.println("Filled " + fieldName);
     }
     
