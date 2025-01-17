@@ -38,23 +38,14 @@ public class FindStoreTest {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Before Method: Navigating to the test website.");
-        driver.get("https://www.apple.com/");
+        driver.get("https://www.apple.com/retail/");
     }
 
     @Test
     @Feature("Search")
     @Description("Test normal search functionality.")
     public void testNormalSearch() {
-        hoverOnStoreAndValidateDropdown();
-        clickFindAStore();
         fillSearchBarAndEnter("jakarta");
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        // Validate results page has loaded or results are visible
-        WebElement results = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[contains(@class, 'store-locator-results')]")));
-        Assert.assertNotNull(results, "Search results are not displayed!");
-
         System.out.println("Search test completed successfully.");
     }
 

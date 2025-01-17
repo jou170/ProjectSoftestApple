@@ -11,9 +11,11 @@ import io.qameta.allure.testng.AllureTestNg;
 
 import java.io.ByteArrayInputStream;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@Listeners({AllureTestNg.class})
+@Listeners({ AllureTestNg.class })
 public class SignUpTest {
     private WebDriver driver;
     private App app;
@@ -44,7 +46,288 @@ public class SignUpTest {
 
     @Test
     @Feature("Submit Form")
-    public void testRegisterFormSubmission() throws Exception {
+    public void TC001() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+
+        // Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC002() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC003() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC004() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC005() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        // fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC006() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC007() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        // fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC008() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        // fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC009() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("proyek12345");
+        fillConfirmPassword("proyek12345");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC010() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*1234");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC011() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        // fillPhoneNumber("081283563500");
+
+        Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC012() throws Exception {
         navigateRegisterForm();
         switchToNewWindow();
 
@@ -60,12 +343,73 @@ public class SignUpTest {
         fillConfirmPassword("Proyek*123");
         selectCountryOptions("+62");
         fillPhoneNumber("081283563500");
-        
-        solveCaptcha(); // ini bakal nyoba solve sampai kena limit refresh code nya
-        
+
+        // Thread.sleep(10000);
+
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("Submit Form")
+    public void TC0013() throws Exception {
+        navigateRegisterForm();
+        switchToNewWindow();
+        // switchToDefaultContent();
+        switchToIFrame(0);
+        fillFirstName("Joy");
+        fillLastName("Gemilang");
+        selectCountryRegion("indonesia");
+        selectMonth("July");
+        selectDay("17");
+        selectYear("2004");
+        fillEmailAddress("joy.g22@mhs.istts.ac.id");
+        fillPassword("Proyek*123");
+        fillConfirmPassword("Proyek*123");
+        selectCountryOptions("+62");
+        fillPhoneNumber("081283563500");
+
         Thread.sleep(10000);
 
+        fieldClick("//button[@type='submit']");
+
+        Thread.sleep(10000);
         Assert.assertTrue(true);
+    }
+
+    // @Test
+    // @Feature("Submit Form")
+    // public void testRegisterFormSubmission() throws Exception {
+    // navigateRegisterForm();
+    // switchToNewWindow();
+
+    // switchToIFrame(0);
+    // fillFirstName("Joy");
+    // fillLastName("Gemilang");
+    // selectCountryRegion("indonesia");
+    // selectMonth("July");
+    // selectDay("17");
+    // selectYear("2004");
+    // fillEmailAddress("joy.g22@mhs.istts.ac.id");
+    // fillPassword("Proyek*123");
+    // fillConfirmPassword("Proyek*123");
+    // selectCountryOptions("+62");
+    // fillPhoneNumber("081283563500");
+
+    // Thread.sleep(10000);
+
+    // fieldClick("//button[@type='submit']");
+
+    // Thread.sleep(10000);
+    // Assert.assertTrue(true);
+    // }
+
+    private void fieldClick(String path) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
+        field.click();
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
@@ -78,11 +422,13 @@ public class SignUpTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         System.out.println("Current URL: " + driver.getCurrentUrl());
 
-        WebElement shoppingBagIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='globalnav-menubutton-link-bag']")));
+        WebElement shoppingBagIcon = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='globalnav-menubutton-link-bag']")));
         shoppingBagIcon.click();
         System.out.println("Clicked shopping bag icon");
 
-        WebElement accountNavigation = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-analytics-title='account']")));
+        WebElement accountNavigation = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-analytics-title='account']")));
         accountNavigation.click();
         System.out.println("Clicked account navigation");
 
@@ -91,25 +437,30 @@ public class SignUpTest {
 
         switchToIFrame(0);
 
-        WebElement navigateCreateAccount = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='create-link']")));
+        WebElement navigateCreateAccount = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='create-link']")));
         navigateCreateAccount.click();
         System.out.println("Clicked Create Account");
-        
+
         Thread.sleep(5000); // tunggu berpindah dulu baru screenshoot
-        Allure.addAttachment("Halaman sign up muncul setelah di navigasi", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-        
+        Allure.addAttachment("Halaman sign up muncul setelah di navigasi",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+
     }
 
-    @Step("Beralih ke tab/jendela baru")
+    @Step("Beralih ke tab/jendela terbaru")
     private void switchToNewWindow() {
-        String originalWindow = driver.getWindowHandle();
-        for (String windowHandle : driver.getWindowHandles()) {
-            if (!windowHandle.equals(originalWindow)) {
-                driver.switchTo().window(windowHandle);
-                break;
-            }
-        }
-        System.out.println("Switched to new window");
+        // Ambil semua window handles saat ini
+        Set<String> windowHandles = driver.getWindowHandles();
+
+        // Ubah menjadi list untuk mendapatkan jendela terakhir
+        List<String> handlesList = new ArrayList<>(windowHandles);
+
+        // Pindah ke jendela terakhir dalam daftar
+        String newWindowHandle = handlesList.get(handlesList.size() - 1);
+        driver.switchTo().window(newWindowHandle);
+
+        System.out.println("Switched to the latest new window");
         System.out.println("Current URL: " + driver.getCurrentUrl());
     }
 
@@ -131,57 +482,71 @@ public class SignUpTest {
 
     @Step("Mengisi field first name pada register form")
     private void fillFirstName(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[1]/input[1]"), value, "First Name");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[1]/input[1]"), value,
+                "First Name");
     }
 
     @Step("Mengisi field last name pada register form")
     private void fillLastName(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/input[1]"), value, "Last Name");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[1]/div[2]/input[1]"), value,
+                "Last Name");
     }
 
     @Step("Memilih country/region berdasarkan keyword yang dimasukkan pada register form")
     private void selectCountryRegion(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[2]/select[1]"), value, "Country/Region");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[2]/select[1]"), value,
+                "Country/Region");
     }
 
     @Step("Memilih month berdasarkan keyword yang dimasukkan pada register form")
     private void selectMonth(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[1]/div[1]/select[1]"), value, "Month");
+        fillField(By.xpath(
+                "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[1]/div[1]/select[1]"),
+                value, "Month");
     }
 
     @Step("Memilih day berdasarkan keyword yang dimasukkan pada register form")
     private void selectDay(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[2]/div[1]/select[1]"), value, "Day");
+        fillField(By.xpath(
+                "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[2]/div[1]/select[1]"),
+                value, "Day");
     }
 
     @Step("Memilih year berdasarkan keyword yang dimasukkan pada register form")
     private void selectYear(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[3]/div[1]/select[1]"), value, "Year");
+        fillField(By.xpath(
+                "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/div[3]/div[2]/fieldset[1]/div[3]/div[1]/select[1]"),
+                value, "Year");
     }
 
     @Step("Mengisi field email address pada register form")
     private void fillEmailAddress(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/input[1]"), value, "Email Address");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/input[1]"), value,
+                "Email Address");
     }
 
     @Step("Mengisi field password pada register form")
     private void fillPassword(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[2]/input[1]"), value, "Password");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[2]/input[1]"),
+                value, "Password");
     }
 
     @Step("Mengisi field confirm password pada register form")
     private void fillConfirmPassword(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[4]/input[1]"), value, "Confirm Password");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[4]/input[1]"), value,
+                "Confirm Password");
     }
 
     @Step("Memilih country options untuk phone number pada register form")
     private void selectCountryOptions(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/select[1]"), value, "Country Options");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[1]/select[1]"), value,
+                "Country Options");
     }
 
     @Step("Mengisi phone number pada register form")
     private void fillPhoneNumber(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[2]/div[1]/input[1]"), value, "Phone Number");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[5]/div[2]/div[1]/input[1]"), value,
+                "Phone Number");
     }
 
     private void fillField(By locator, String value, String fieldName) {
@@ -195,22 +560,25 @@ public class SignUpTest {
     private void fillCaptcha() throws Exception {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        
-        WebElement imageChallenge = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[1]/img[1]")));
+
+        WebElement imageChallenge = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[1]/img[1]")));
         String imageUrl = (String) js.executeScript("return arguments[0].getAttribute('src');", imageChallenge);
-        
+
         String captchaText = CaptchaSolver.decodeCaptcha(imageUrl);
         if (captchaText == null || captchaText == "") {
             System.out.println("Captcha text kosong");
             captchaText = "ABCDE";
         }
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/input[1]"), captchaText, "Captcha");
+        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/input[1]"),
+                captchaText, "Captcha");
         // if (captchaText != null && captchaText != "") {
-            // Kalau teks tidak kosong maka coba input
+        // Kalau teks tidak kosong maka coba input
         // } else {
-        //     // Kalau tidak berhasil baca apapun maka tekan new code
-        //     WebElement newCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
-        //     newCode.click();
+        // // Kalau tidak berhasil baca apapun maka tekan new code
+        // WebElement newCode =
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
+        // newCode.click();
         // }
     }
 
@@ -223,8 +591,9 @@ public class SignUpTest {
             fillCaptcha(); // Mengisi field captcha
             try {
                 Thread.sleep(1000);
-                
-                WebElement captchaField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/input[1]")));
+
+                WebElement captchaField = wait.until(ExpectedConditions.visibilityOfElementLocated(By
+                        .xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/input[1]")));
                 // Inisialisasi JavascriptExecutor
                 JavascriptExecutor js = (JavascriptExecutor) driver;
                 // Dapatkan atribut 'value' menggunakan JavaScript
@@ -232,22 +601,26 @@ public class SignUpTest {
 
                 if (fieldValue.isEmpty()) {
                     System.out.println("Gagal CAPTCHA kosong, mencoba lagi...");
-                    
-                    WebElement newCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
+
+                    WebElement newCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                            "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
                     newCode.click();
                     continue;
                 }
-                
-                WebElement continueButton = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/button[1]"));
+
+                WebElement continueButton = driver
+                        .findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[9]/button[1]"));
                 continueButton.click();
 
                 // Mencari elemen error CAPTCHA
-                WebElement captchaError = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/div[1]/span[2]"));
+                WebElement captchaError = driver.findElement(By.xpath(
+                        "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[1]/div[1]/span[2]"));
                 // Memeriksa apakah elemen error berisi teks error
                 if (captchaError.getText().contains("Please enter the characters you see or hear to continue.")) {
                     System.out.println("Gagal CAPTCHA error, mencoba lagi...");
-                    
-                    WebElement newCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
+
+                    WebElement newCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
+                            "/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[7]/div[2]/div[2]/button[1]/span[1]")));
                     newCode.click();
                     continue;
                 } else {
@@ -262,7 +635,6 @@ public class SignUpTest {
         System.out.println("CAPTCHA berhasil dipecahkan.");
     }
 
-  
     @AfterMethod
     public void afterMethod() {
         System.out.println("After Method: langkah untuk clear atau reload halaman jika diperlukan");
