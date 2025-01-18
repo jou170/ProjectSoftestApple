@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @Listeners({ AllureTestNg.class })
-public class SignUpTest {
+public class SignInTest {
     private WebDriver driver;
     private App app;
 
@@ -45,27 +45,30 @@ public class SignUpTest {
     }
 
     @Test
-    @Feature("TC001")
+    @Feature("TC015")
     @Description("Sign Up Gagal Tanpa mengisi Data apapun")
     public void test01() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
+        navigateLoginForm();
 
         switchToIFrame(0);
 
-        // Thread.sleep(10000);
+        fillEmailAddress("abcdefg");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        fieldClick("//button[@type='submit']");
+        Thread.sleep(3000);
+
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
 
     @Test
-    @Feature("TC002")
+    @Feature("TC016")
     @Description("Sign Up Gagal Tanpa mengisi Data First Name")
     public void test02() throws Exception {
-        navigateRegisterForm();
+        navigateLoginForm();
         switchToNewWindow();
 
         switchToIFrame(0);
@@ -89,10 +92,10 @@ public class SignUpTest {
     }
 
     @Test
-    @Feature("TC003")
+    @Feature("TC017")
     @Description("Sign Up Gagal Tanpa mengisi Data Last Name")
     public void test03() throws Exception {
-        navigateRegisterForm();
+        navigateLoginForm();
         switchToNewWindow();
 
         switchToIFrame(0);
@@ -116,21 +119,12 @@ public class SignUpTest {
     }
 
     @Test
-    @Feature("TC004")
+    @Feature("TC018")
     @Description("Sign Up Gagal Tanpa mengisi Data Birthday")
     public void test04() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
+        navigateLoginForm();
         switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
+        fillEmailAddress(null);
 
         Thread.sleep(10000);
 
@@ -141,10 +135,10 @@ public class SignUpTest {
     }
 
     @Test
-    @Feature("TC005")
+    @Feature("TC019")
     @Description("Sign Up Gagal Tanpa mengisi Data Email")
     public void test05() throws Exception {
-        navigateRegisterForm();
+        navigateLoginForm();
         switchToNewWindow();
 
         switchToIFrame(0);
@@ -168,266 +162,6 @@ public class SignUpTest {
         Assert.assertTrue(true);
     }
 
-    @Test
-    @Feature("TC006")
-    @Description("Sign Up Gagal Dengan Mengisi Format email salah")
-    public void test06() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC007")
-    @Description("Sign Up Gagal Tanpa mengisi Password")
-    public void test07() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        // fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC008")
-    @Description("Sign Up Gagal Tanpa mengisi Confirm Password")
-    public void test08() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        // fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC009")
-    @Description("Sign Up Gagal dengan mengisi format password yang salah")
-    public void test09() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("proyek12345");
-        fillConfirmPassword("proyek12345");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC010")
-    @Description("Sign Up Gagal dengan mengisi password dan confirm password yang berbeda")
-    public void test10() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*1234");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC011")
-    @Description("Sign Up Gagal Tanpa mengisi Phone Number")
-    public void test11() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        // fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC012")
-    @Description("Sign Up Gagal Tanpa mengisi Verification Code")
-    public void test12() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        // Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC013")
-    @Description("Sign Up Gagal Dengan mengisi Verification Code yang salah")
-    public void test13() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-        // switchToDefaultContent();
-        switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    @Feature("TC014")
-    @Description("Sign Up Berhasil")
-    public void test14() throws Exception {
-        navigateRegisterForm();
-        switchToNewWindow();
-
-        switchToIFrame(0);
-        fillFirstName("Hans");
-        fillLastName("Tiono");
-        selectCountryRegion("indonesia");
-        selectMonth("August");
-        selectDay("9");
-        selectYear("2004");
-        fillEmailAddress("hans.p22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081943602761");
-
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(15000);
-
-        // switchToIFrame(0);
-        fieldClick("//button[@type='submit']");
-
-        Thread.sleep(15000);
-
-        fieldClick("//button[@type='submit']");
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
-
     private void fieldClick(String path) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
@@ -440,7 +174,7 @@ public class SignUpTest {
     }
 
     @Step("Navigasi ke halaman register akun")
-    private void navigateRegisterForm() throws Exception {
+    private void navigateLoginForm() throws Exception {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         System.out.println("Current URL: " + driver.getCurrentUrl());
 
@@ -450,23 +184,9 @@ public class SignUpTest {
         System.out.println("Clicked shopping bag icon");
 
         WebElement accountNavigation = wait
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@data-analytics-title='account']")));
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Sign in']")));
         accountNavigation.click();
-        System.out.println("Clicked account navigation");
-
-        wait.until(ExpectedConditions.urlContains("signIn/account"));
-        System.out.println("Current URL after navigation: " + driver.getCurrentUrl());
-
-        switchToIFrame(0);
-
-        WebElement navigateCreateAccount = wait
-                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='create-link']")));
-        navigateCreateAccount.click();
-        System.out.println("Clicked Create Account");
-
-        Thread.sleep(5000); // tunggu berpindah dulu baru screenshoot
-        Allure.addAttachment("Halaman sign up muncul setelah di navigasi",
-                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        System.out.println("Clicked sign in navigation");
 
     }
 
@@ -543,13 +263,13 @@ public class SignUpTest {
 
     @Step("Mengisi field email address pada register form")
     private void fillEmailAddress(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[1]/input[1]"), value,
-                "Email Address");
+        fillField(By.xpath("//input[@id='account_name_text_field']"), value,
+                "Email Or Phone Number");
     }
 
     @Step("Mengisi field password pada register form")
     private void fillPassword(String value) {
-        fillField(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[3]/div[1]/div[2]/input[1]"),
+        fillField(By.xpath("//input[@id='password_text_field']"),
                 value, "Password");
     }
 

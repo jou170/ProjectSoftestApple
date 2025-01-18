@@ -13,7 +13,7 @@ import io.qameta.allure.testng.AllureTestNg;
 import java.time.Duration;
 
 @Listeners({ AllureTestNg.class })
-public class FindStoreTest {
+public class NavigationTest {
     private WebDriver driver;
     private App app;
 
@@ -38,48 +38,33 @@ public class FindStoreTest {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Before Method: Navigating to the test website.");
-        driver.get("https://www.apple.com/retail/");
+        driver.get("https://www.apple.com");
     }
 
     @Test
-    @Feature("TC035")
-    @Description("Search berhasil dengan kata kunci lokasi yang benar")
+    @Feature("TC039")
+    @Description("Navigasi Berhasil ketika di click dibagian navbar")
     public void test1() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("jakarta");
-        System.out.println("Search test completed successfully.");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC036")
-    @Description("Search berhasil dengan klik suggestion")
-    public void test2() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBar("si");
         Thread.sleep(3000);
-        fieldClick("//span[@class='result-submatch']");
-        System.out.println("Search test completed successfully.");
+        fieldClick("//a[@aria-label='iPad']//span[@class='globalnav-link-text-container']");
         Thread.sleep(10000);
     }
 
     @Test
-    @Feature("TC037")
-    @Description("Search berhasil dengan input zip code lokasi")
+    @Feature("TC040")
+    @Description("Navigasi berhasil ketika di click dibagian footer")
+    public void test2() throws Exception {
+        Thread.sleep(3000);
+        fieldClick("//a[normalize-space()='Apple Fitness+']");
+        Thread.sleep(10000);
+    }
+
+    @Test
+    @Feature("TC041")
+    @Description("Membuka salah satu service untuk pelajari lebih lanjut")
     public void test3() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("62010");
-        System.out.println("Search test completed successfully.");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC038")
-    @Description("Search gagal karena kata kunci yang dimasukkan salah")
-    public void test4() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("cnlaorbrbfbrja");
-        System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        fieldClick("//a[@aria-label='Learn more, iPhone 16 Pro']");
         Thread.sleep(10000);
     }
 

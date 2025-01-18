@@ -3,6 +3,7 @@ package com.example.selenium;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -13,7 +14,7 @@ import io.qameta.allure.testng.AllureTestNg;
 import java.time.Duration;
 
 @Listeners({ AllureTestNg.class })
-public class FindStoreTest {
+public class BagTest {
     private WebDriver driver;
     private App app;
 
@@ -38,48 +39,43 @@ public class FindStoreTest {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("Before Method: Navigating to the test website.");
-        driver.get("https://www.apple.com/retail/");
+        driver.get("https://www.apple.com");
     }
 
     @Test
-    @Feature("TC035")
-    @Description("Search berhasil dengan kata kunci lokasi yang benar")
+    @Feature("TC020")
+    @Description("Add to Bag Berhasil")
     public void test1() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("jakarta");
-        System.out.println("Search test completed successfully.");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC036")
-    @Description("Search berhasil dengan klik suggestion")
-    public void test2() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBar("si");
         Thread.sleep(3000);
-        fieldClick("//span[@class='result-submatch']");
-        System.out.println("Search test completed successfully.");
+        fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
+        Thread.sleep(3000);
+        fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
+        Thread.sleep(3000);
+        fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
+        // fieldClick("//input[@value='42mm']");
+        fieldClick("//button[@id='add-to-cart']");
         Thread.sleep(10000);
     }
 
     @Test
-    @Feature("TC037")
-    @Description("Search berhasil dengan input zip code lokasi")
+    @Feature("TC021")
+    @Description("Update Bag")
+    public void test2() throws Exception {
+        Thread.sleep(3000);
+        fieldClick("//a[@id='globalnav-menubutton-link-bag']");
+        fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
+        selectOptionByValue("rs-quantity-dropdown", "4");
+        Thread.sleep(10000);
+    }
+
+    @Test
+    @Feature("TC022")
+    @Description("Membuka salah satu service untuk pelajari lebih lanjut")
     public void test3() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("62010");
-        System.out.println("Search test completed successfully.");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC038")
-    @Description("Search gagal karena kata kunci yang dimasukkan salah")
-    public void test4() throws Exception {
-        Thread.sleep(5000);
-        fillSearchBarAndEnter("cnlaorbrbfbrja");
-        System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        fieldClick("//a[@id='globalnav-menubutton-link-bag']");
+        fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
+        fieldClick("//span[contains(text(),'Remove')]");
         Thread.sleep(10000);
     }
 
@@ -148,6 +144,19 @@ public class FindStoreTest {
         searchInput.sendKeys(value);
 
         System.out.println("Search submitted with value: " + value);
+    }
+
+    @Step("Memilih option combobox")
+    private void selectOptionByValue(String selectElementId, String value) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        // Tunggu hingga elemen <select> terlihat
+        WebElement selectElement = wait
+                .until(ExpectedConditions.visibilityOfElementLocated(By.className(selectElementId)));
+
+        // Gunakan kelas Select untuk memilih opsi berdasarkan value
+        Select select = new Select(selectElement);
+        select.selectByValue(value);
     }
 
     @Step("Click field")

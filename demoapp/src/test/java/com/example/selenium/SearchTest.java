@@ -43,8 +43,10 @@ public class SearchTest {
     }
 
     @Test
-    @Feature("Search")
-    public void testNormalSearch() throws Exception {
+    @Feature("TC025")
+    @Description("Search berhasil dengan kata kunci yang benar")
+    public void test1() throws Exception {
+        Thread.sleep(3000);
         clickSearchIcon();
         fillSearchBar("phone");
         doSearch();
@@ -54,8 +56,10 @@ public class SearchTest {
     }
 
     @Test
-    @Feature("Search")
+    @Feature("TC026")
+    @Description("Search berhasil dengan menggunakan 'Suggested Searches'")
     public void testSuggestedSearch() throws Exception {
+        Thread.sleep(3000);
         clickSearchIcon();
         fillSearchBar("watch");
         clickSuggestedSearch();
@@ -65,8 +69,10 @@ public class SearchTest {
     }
 
     @Test
-    @Feature("Search")
+    @Feature("TC027")
+    @Description("Search berhasil dengan kata kunci salah ketik")
     public void testMisspelledNormalSearch() throws Exception {
+        Thread.sleep(3000);
         clickSearchIcon();
         fillSearchBar("iphome");
         doSearch();
@@ -76,8 +82,10 @@ public class SearchTest {
     }
 
     @Test
-    @Feature("Search")
+    @Feature("TC028")
+    @Description("Search gagal dengan input text acak")
     public void testWrongSearch() throws Exception {
+        Thread.sleep(3000);
         clickSearchIcon();
         fillSearchBar("awjdbh");
         doSearch();
