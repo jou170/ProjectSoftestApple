@@ -406,22 +406,22 @@ public class SignUpTest {
         selectMonth("August");
         selectDay("9");
         selectYear("2004");
-        fillEmailAddress("hans.p22@mhs.istts.ac.id");
+        fillEmailAddress("billie.n22@mhs.istts.ac.id");
         fillPassword("Proyek*123");
         fillConfirmPassword("Proyek*123");
         selectCountryOptions("+62");
-        fillPhoneNumber("081943602761");
+        fillPhoneNumber("0881027719810");
 
         Thread.sleep(10000);
 
         fieldClick("//button[@type='submit']");
 
-        Thread.sleep(150000);
+        Thread.sleep(100000);
 
         // switchToIFrame(0);
         fieldClick("//button[@type='submit']");
 
-        Thread.sleep(150000);
+        Thread.sleep(100000);
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(10000);
