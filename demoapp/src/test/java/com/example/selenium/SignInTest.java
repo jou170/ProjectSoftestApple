@@ -46,7 +46,7 @@ public class SignInTest {
 
     @Test
     @Feature("TC015")
-    @Description("Sign Up Gagal Tanpa mengisi Data apapun")
+    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang salah")
     public void test01() throws Exception {
         navigateLoginForm();
 
@@ -66,26 +66,19 @@ public class SignInTest {
 
     @Test
     @Feature("TC016")
-    @Description("Sign Up Gagal Tanpa mengisi Data First Name")
+    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang belum terdaftar")
     public void test02() throws Exception {
         navigateLoginForm();
-        switchToNewWindow();
 
         switchToIFrame(0);
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
 
-        Thread.sleep(10000);
+        fillEmailAddress("hans.p22@mhs.istts.ac.id");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        fieldClick("//button[@type='submit']");
+        Thread.sleep(3000);
+
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(10000);
         Assert.assertTrue(true);
@@ -93,26 +86,19 @@ public class SignInTest {
 
     @Test
     @Feature("TC017")
-    @Description("Sign Up Gagal Tanpa mengisi Data Last Name")
+    @Description("Sign In Gagal Dengan Mengisi Password salah")
     public void test03() throws Exception {
         navigateLoginForm();
-        switchToNewWindow();
 
         switchToIFrame(0);
-        fillFirstName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
 
-        Thread.sleep(10000);
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        fieldClick("//button[@type='submit']");
+        Thread.sleep(3000);
+
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(10000);
         Assert.assertTrue(true);
@@ -120,15 +106,19 @@ public class SignInTest {
 
     @Test
     @Feature("TC018")
-    @Description("Sign Up Gagal Tanpa mengisi Data Birthday")
+    @Description("Sign In Gagal Dengan Mengisi Verification Code yang salah")
     public void test04() throws Exception {
         navigateLoginForm();
+
         switchToIFrame(0);
-        fillEmailAddress(null);
 
-        Thread.sleep(10000);
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        fieldClick("//button[@type='submit']");
+        Thread.sleep(3000);
+
+        fillPassword("Buatsofttest123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(10000);
         Assert.assertTrue(true);
@@ -136,27 +126,75 @@ public class SignInTest {
 
     @Test
     @Feature("TC019")
-    @Description("Sign Up Gagal Tanpa mengisi Data Email")
+    @Description("Sign In Berhasil")
     public void test05() throws Exception {
         navigateLoginForm();
-        switchToNewWindow();
 
         switchToIFrame(0);
-        fillFirstName("Joy");
-        fillLastName("Gemilang");
-        selectCountryRegion("indonesia");
-        selectMonth("July");
-        selectDay("17");
-        selectYear("2004");
-        // fillEmailAddress("joy.g22@mhs.istts.ac.id");
-        fillPassword("Proyek*123");
-        fillConfirmPassword("Proyek*123");
-        selectCountryOptions("+62");
-        fillPhoneNumber("081283563500");
+
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+
+        Thread.sleep(3000);
+
+        fillPassword("Buatsofttest123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+
+        Thread.sleep(90000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("TC042")
+    @Description("Sign In Community")
+    public void test06() throws Exception {
+        driver.get("https://discussions.apple.com/welcome?cid=gn-com-community-lp-get_help");
+
+        fieldClick("//button[@class='localnav-button button button-reduced popup-action-button']");
+        switchToIFrame(0);
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+
+        Thread.sleep(3000);
+
+        fillPassword("Buatsofttest123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
 
-        fieldClick("//button[@type='submit']");
+    @Test
+    @Feature("TC023")
+    @Description("Mereply sebuah discussion yang ada pada community dengan mengisi text")
+    public void test07() throws Exception {
+        driver.get("https://discussions.apple.com/welcome");
+
+        fieldClick("//a[normalize-space()='Browse']");
+        Thread.sleep(3000);
+        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='TikTok reinstated in the App Store']");
+        Thread.sleep(3000);
+        fieldClick("//button[@class='button button-reply']");
+        fillTextBox("Will tiktok be back?");
+        fieldClick("//button[normalize-space()='Post']");
+
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    @Feature("TC024")
+    @Description("Mereply sebuah discussion yang ada pada community tanpa mengisi text apapun")
+    public void test08() throws Exception {
+        driver.get("https://discussions.apple.com/welcome");
+
+        fieldClick("//a[normalize-space()='Browse']");
+        Thread.sleep(3000);
+        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='TikTok reinstated in the App Store']");
+        Thread.sleep(3000);
+        fieldClick("//button[@class='button button-reply']");
+        // fillTextBox("Will tiktok be back?");
+        fieldClick("//button[normalize-space()='Post']");
 
         Thread.sleep(10000);
         Assert.assertTrue(true);
@@ -188,6 +226,12 @@ public class SignInTest {
         accountNavigation.click();
         System.out.println("Clicked sign in navigation");
 
+    }
+
+    @Step("Mengisi field last name pada register form")
+    private void fillTextBox(String value) {
+        fillField(By.xpath("//div[@role='textbox']"), value,
+                "Last Name");
     }
 
     @Step("Beralih ke tab/jendela terbaru")
