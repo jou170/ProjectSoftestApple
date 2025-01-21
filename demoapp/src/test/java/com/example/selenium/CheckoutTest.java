@@ -127,6 +127,89 @@ public class CheckoutTest {
         fieldClick("//button[@id='rs-checkout-continue-button-bottom']");
     }
 
+    @Test
+    @Feature("TC030")
+    @Description("Melakukan Checkout product yang di perjual belikan menggunakan Apple Pay")
+    public void testCheckoutWithApplePay() throws Exception {
+        Thread.sleep(3000);
+        fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
+        Thread.sleep(3000);
+        fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
+        Thread.sleep(3000);
+        fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
+        // fieldClick("//input[@value='42mm']");
+        fieldClick("//button[@id='pdp-options-applePay']");
+        Thread.sleep(10000);
+        fillField(By.xpath("//input[@type='text']"), "02108", "checkout.fulfillment.pickupTab.pickup.storeLocator.searchInput");
+        // Thread.sleep(10000);
+        fieldClick("//span[normalize-space()='Apply']");
+        Thread.sleep(5000);
+        fieldClick("//span[@class='rs-checkout-applepay-buttonlogo']");
+        Thread.sleep(10000);
+    }
+    
+    @Test
+    @Feature("TC031")
+    @Description("Melakukan Checkout product yang di perjual belikan")
+    public void testCheckoutWithInvalidZipCode() throws Exception {
+        Thread.sleep(3000);
+        fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
+        Thread.sleep(3000);
+        fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
+        Thread.sleep(3000);
+        fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
+        // fieldClick("//input[@value='42mm']");
+        fieldClick("//button[@id='add-to-cart']");
+        Thread.sleep(10000);
+        fieldClick("//button[@id='shoppingCart.actions.checkoutOtherPayments']");
+        Thread.sleep(10000);
+        fieldClick("//button[@id='signIn.guestLogin.guestLogin']");
+        // Thread.sleep(10000);
+        fillField(By.xpath("//input[@type='text']"), "johnDoe", "checkout.fulfillment.pickupTab.pickup.storeLocator.searchInput");
+        // Thread.sleep(10000);
+        fieldClick("//span[normalize-space()='Apply']");
+        Thread.sleep(5000);
+    }
+
+    @Test
+    @Feature("TC032")
+    @Description("Melakukan Checkout product yang di perjual belikan")
+    public void testCheckoutWithValidZipCode() throws Exception {
+        Thread.sleep(3000);
+        fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
+        Thread.sleep(3000);
+        fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
+        Thread.sleep(3000);
+        fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
+        // fieldClick("//input[@value='42mm']");
+        fieldClick("//button[@id='add-to-cart']");
+        Thread.sleep(10000);
+        fieldClick("//button[@id='shoppingCart.actions.checkoutOtherPayments']");
+        Thread.sleep(10000);
+        fieldClick("//button[@id='signIn.guestLogin.guestLogin']");
+        // Thread.sleep(10000);
+        fillField(By.xpath("//input[@type='text']"), "02112", "checkout.fulfillment.pickupTab.pickup.storeLocator.searchInput");
+        // Thread.sleep(10000);
+        fieldClick("//span[normalize-space()='Apply']");
+        Thread.sleep(5000);
+        fieldClick("//span[contains(text(),'Continue to Shipping Address')]");
+        Thread.sleep(5000);
+        fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.firstName']"), "Test", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.lastName']"), "Checkout", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.street']"), "310 Washington St, Boston, MA 02108, United States", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.street2']"), "-", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        fillField(By.xpath("//input[@id='checkout.shipping.addressContactEmail.address.emailAddress']"), "billie.n22@mhs.istts.ac.id", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        fillField(By.xpath("//input[@id='checkout.shipping.addressContactPhone.address.fullDaytimePhone']"), "(091) 203-9133", "checkout.shipping.addressSelector.newAddress.address.firstName");
+        Thread.sleep(10000);
+        fieldClick("//button[@id='rs-checkout-continue-button-bottom']");
+        Thread.sleep(5000);
+        fieldClick("//button[@id='checkout.shipping.addressVerification.recommendedAddresses.continueWithRecommended']");
+        Thread.sleep(2000);
+        fieldClick("//label[@id='checkout.billing.billingoptions.paypal_label']//span[@class='form-selector-left-col large-6 small-7']");
+        Thread.sleep(5000);
+        fieldClick("//button[@id='rs-checkout-continue-button-bottom']");
+    }
+
     @Attachment(value = "Screenshot", type = "image/png")
     public byte[] takeScreenshot() {    
         try {
