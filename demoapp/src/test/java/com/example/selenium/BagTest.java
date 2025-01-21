@@ -54,6 +54,8 @@ public class BagTest {
         fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
         // fieldClick("//input[@value='42mm']");
         fieldClick("//button[@id='add-to-cart']");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -65,6 +67,8 @@ public class BagTest {
         fieldClick("//a[@id='globalnav-menubutton-link-bag']");
         fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
         selectOptionByValue("rs-quantity-dropdown", "4");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -76,6 +80,8 @@ public class BagTest {
         fieldClick("//a[@id='globalnav-menubutton-link-bag']");
         fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
         fieldClick("//span[contains(text(),'Remove')]");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 

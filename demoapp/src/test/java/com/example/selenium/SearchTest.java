@@ -50,8 +50,9 @@ public class SearchTest {
         clickSearchIcon();
         fillSearchBar("phone");
         doSearch();
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
-
         Assert.assertTrue(true);
     }
 
@@ -63,6 +64,8 @@ public class SearchTest {
         clickSearchIcon();
         fillSearchBar("watch");
         clickSuggestedSearch();
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);
@@ -76,6 +79,8 @@ public class SearchTest {
         clickSearchIcon();
         fillSearchBar("iphome");
         doSearch();
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);
@@ -89,6 +94,8 @@ public class SearchTest {
         clickSearchIcon();
         fillSearchBar("awjdbh");
         doSearch();
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);

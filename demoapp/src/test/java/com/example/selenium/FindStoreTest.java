@@ -48,6 +48,8 @@ public class FindStoreTest {
         Thread.sleep(5000);
         fillSearchBarAndEnter("jakarta");
         System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -60,6 +62,8 @@ public class FindStoreTest {
         Thread.sleep(3000);
         fieldClick("//span[@class='result-submatch']");
         System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -70,6 +74,8 @@ public class FindStoreTest {
         Thread.sleep(5000);
         fillSearchBarAndEnter("62010");
         System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -80,6 +86,8 @@ public class FindStoreTest {
         Thread.sleep(5000);
         fillSearchBarAndEnter("cnlaorbrbfbrja");
         System.out.println("Search test completed successfully.");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
