@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import io.qameta.allure.*;
 import io.qameta.allure.testng.AllureTestNg;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 import java.util.List;
 
@@ -52,100 +53,43 @@ public class CheckoutTest {
 
     @Test
     @Feature("TC029")
-    @Description("Checkout Bag")
-    public void test1() throws Exception {
-        Thread.sleep(3000);
-        fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
-        Thread.sleep(3000);
-        fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
-        Thread.sleep(3000);
-        fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
-        // fieldClick("//input[@value='42mm']");
-        fieldClick("//button[@id='add-to-cart']");
-        Thread.sleep(3000);
-
-        fieldClick("//button[@id='shoppingCart.actions.checkoutOtherPayments']");
-        switchToIFrame(0);
-        fieldClick("//button[@id='signIn.guestLogin.guestLogin']");
-    }
-
-    @Test
-    @Feature("TC021")
-    @Description("Update Bag")
-    public void test2() throws Exception {
-        Thread.sleep(3000);
-        fieldClick("//a[@id='globalnav-menubutton-link-bag']");
-        fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
-        selectOptionByValue("rs-quantity-dropdown", "4");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC022")
-    @Description("Membuka salah satu service untuk pelajari lebih lanjut")
-    public void test3() throws Exception {
-        Thread.sleep(3000);
-        fieldClick("//a[@id='globalnav-menubutton-link-bag']");
-        fieldClick("//a[@class='globalnav-flyout-item ac-gn-bagview-button ac-gn-bagview-button-pill']");
-        fieldClick("//span[contains(text(),'Remove')]");
-        Thread.sleep(10000);
-    }
-
-    @Test
-    @Feature("TC029")
     @Description("Melakukan Checkout product yang di perjual belikan")
     public void testCheckout() throws Exception {
-        Thread.sleep(3000);
         fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
-        Thread.sleep(3000);
         fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
-        Thread.sleep(3000);
         fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
-        // fieldClick("//input[@value='42mm']");
         fieldClick("//button[@id='add-to-cart']");
-        Thread.sleep(10000);
         fieldClick("//button[@id='shoppingCart.actions.checkoutOtherPayments']");
-        Thread.sleep(10000);
         fieldClick("//button[@id='signIn.guestLogin.guestLogin']");
-        // Thread.sleep(10000);
         fillField(By.xpath("//input[@type='text']"), "02108", "checkout.fulfillment.pickupTab.pickup.storeLocator.searchInput");
-        // Thread.sleep(10000);
         fieldClick("//span[normalize-space()='Apply']");
-        Thread.sleep(5000);
         fieldClick("//span[contains(text(),'Continue to Shipping Address')]");
-        Thread.sleep(5000);
         fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.firstName']"), "Test", "checkout.shipping.addressSelector.newAddress.address.firstName");
         fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.lastName']"), "Checkout", "checkout.shipping.addressSelector.newAddress.address.firstName");
         fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.street']"), "310 Washington St, Boston, MA 02108, United States", "checkout.shipping.addressSelector.newAddress.address.firstName");
         fillField(By.xpath("//input[@id='checkout.shipping.addressSelector.newAddress.address.street2']"), "-", "checkout.shipping.addressSelector.newAddress.address.firstName");
         fillField(By.xpath("//input[@id='checkout.shipping.addressContactEmail.address.emailAddress']"), "billie.n22@mhs.istts.ac.id", "checkout.shipping.addressSelector.newAddress.address.firstName");
         fillField(By.xpath("//input[@id='checkout.shipping.addressContactPhone.address.fullDaytimePhone']"), "(091) 203-9133", "checkout.shipping.addressSelector.newAddress.address.firstName");
-        Thread.sleep(2000);
         fieldClick("//button[@id='rs-checkout-continue-button-bottom']");
         fieldClick("//label[@id='checkout.billing.billingoptions.paypal_label']//span[@class='form-selector-left-col large-6 small-7']");
-        Thread.sleep(5000);
         fieldClick("//button[@id='rs-checkout-continue-button-bottom']");
+        Thread.sleep(10000);
+        takeScreenshot();
+        Thread.sleep(3000);
     }
 
     @Test
     @Feature("TC030")
     @Description("Melakukan Checkout product yang di perjual belikan menggunakan Apple Pay")
     public void testCheckoutWithApplePay() throws Exception {
-        Thread.sleep(3000);
         fieldClick("//a[@aria-label='Store']//span[@class='globalnav-link-text-container']");
-        Thread.sleep(3000);
         fieldClick("//span[normalize-space()='40mm Plum Sport Loop']");
-        Thread.sleep(3000);
         fieldClick("//label[@for=':r2:']//img[@class='colornav-swatch']");
-        // fieldClick("//input[@value='42mm']");
         fieldClick("//button[@id='pdp-options-applePay']");
-        Thread.sleep(10000);
         fillField(By.xpath("//input[@type='text']"), "02108", "checkout.fulfillment.pickupTab.pickup.storeLocator.searchInput");
-        // Thread.sleep(10000);
         fieldClick("//span[normalize-space()='Apply']");
-        Thread.sleep(5000);
         fieldClick("//span[@class='rs-checkout-applepay-buttonlogo']");
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         takeScreenshot();
         Thread.sleep(10000);
     }
@@ -219,14 +163,17 @@ public class CheckoutTest {
 
 
     @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] takeScreenshot() {    
+    public byte[] takeScreenshot() {
         try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
             return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
             return null;
         }
     }
+
 
     @Step("Switch to new tab/window.")
     private void switchToNewWindow() {
@@ -297,7 +244,7 @@ public class CheckoutTest {
 
     @Step("Memilih option combobox")
     private void selectOptionByValue(String selectElementId, String value) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         // Tunggu hingga elemen <select> terlihat
         WebElement selectElement = wait
@@ -328,7 +275,6 @@ public class CheckoutTest {
     public void afterMethod() {
         System.out.println("After Method: Performing cleanup or resetting state.");
         try {
-            takeScreenshot(); // Take a screenshot if needed
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
         }

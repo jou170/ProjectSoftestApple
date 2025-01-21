@@ -51,7 +51,7 @@ public class SearchTest {
         fillSearchBar("phone");
         doSearch();
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -65,7 +65,7 @@ public class SearchTest {
         fillSearchBar("watch");
         clickSuggestedSearch();
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);
@@ -80,7 +80,7 @@ public class SearchTest {
         fillSearchBar("iphome");
         doSearch();
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);
@@ -95,16 +95,24 @@ public class SearchTest {
         fillSearchBar("awjdbh");
         doSearch();
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
 
         Assert.assertTrue(true);
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] screenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    public byte[] takeScreenshot() {
+        try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        } catch (Exception e) {
+            System.err.println("Failed to capture screenshot: " + e.getMessage());
+            return null;
+        }
     }
+
 
     @Step("Beralih ke tab/jendela baru")
     private void switchToNewWindow() {

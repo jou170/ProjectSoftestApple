@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @Listeners({ AllureTestNg.class })
-public class SignInTest {
+public class SignIn_Regular_Community_ChatFeatureTest {
     private WebDriver driver;
     private App app;
 
@@ -60,7 +60,7 @@ public class SignInTest {
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -81,7 +81,7 @@ public class SignInTest {
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -102,7 +102,7 @@ public class SignInTest {
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -123,7 +123,7 @@ public class SignInTest {
         fillPassword("Buatsofttest123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -145,13 +145,13 @@ public class SignInTest {
         fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(90000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(3000);
         Assert.assertTrue(true);
     }
 
     @Test
-    @Feature("TC042")
+    @Feature("TC040")
     @Description("Sign In Community")
     public void test06() throws Exception {
         driver.get("https://discussions.apple.com/welcome?cid=gn-com-community-lp-get_help");
@@ -166,7 +166,7 @@ public class SignInTest {
         fillPassword("Buatsofttest123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -185,7 +185,7 @@ public class SignInTest {
         fillTextBox("Will tiktok be back?");
         fieldClick("//button[normalize-space()='Post']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -204,7 +204,7 @@ public class SignInTest {
         // fillTextBox("Will tiktok be back?");
         fieldClick("//button[normalize-space()='Post']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -216,9 +216,17 @@ public class SignInTest {
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] screenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    public byte[] takeScreenshot() {
+        try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        } catch (Exception e) {
+            System.err.println("Failed to capture screenshot: " + e.getMessage());
+            return null;
+        }
     }
+
 
     @Step("Navigasi ke halaman register akun")
     private void navigateLoginForm() throws Exception {

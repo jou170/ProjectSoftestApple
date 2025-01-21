@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import io.qameta.allure.*;
 import io.qameta.allure.testng.AllureTestNg;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 @Listeners({ AllureTestNg.class })
@@ -74,7 +75,7 @@ public class BagTest {
 
     @Test
     @Feature("TC022")
-    @Description("Membuka salah satu service untuk pelajari lebih lanjut")
+    @Description("Membuang salah satu item di bag")
     public void test3() throws Exception {
         Thread.sleep(3000);
         fieldClick("//a[@id='globalnav-menubutton-link-bag']");
@@ -88,6 +89,8 @@ public class BagTest {
     @Attachment(value = "Screenshot", type = "image/png")
     public byte[] takeScreenshot() {
         try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
             return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
@@ -185,7 +188,7 @@ public class BagTest {
     public void afterMethod() {
         System.out.println("After Method: Performing cleanup or resetting state.");
         try {
-            takeScreenshot(); // Take a screenshot if needed
+            // Take an action if needed
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
         }

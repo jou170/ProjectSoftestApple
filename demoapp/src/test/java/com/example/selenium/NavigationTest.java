@@ -10,6 +10,7 @@ import org.testng.annotations.*;
 import io.qameta.allure.*;
 import io.qameta.allure.testng.AllureTestNg;
 
+import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 @Listeners({ AllureTestNg.class })
@@ -75,8 +76,10 @@ public class NavigationTest {
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] takeScreenshot() {
+     public byte[] takeScreenshot() {
         try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
             return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
@@ -161,7 +164,6 @@ public class NavigationTest {
     public void afterMethod() {
         System.out.println("After Method: Performing cleanup or resetting state.");
         try {
-            takeScreenshot(); // Take a screenshot if needed
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
         }

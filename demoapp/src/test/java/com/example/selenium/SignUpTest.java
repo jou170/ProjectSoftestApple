@@ -57,7 +57,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -85,7 +85,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -113,7 +113,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -139,7 +139,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -168,7 +168,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -197,7 +197,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -226,7 +226,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -255,7 +255,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -284,7 +284,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -313,7 +313,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -342,7 +342,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -371,7 +371,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -400,7 +400,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -424,8 +424,6 @@ public class SignUpTest {
         fillConfirmPassword("Proyek*123");
         selectCountryOptions("+62");
         fillPhoneNumber("0881027719810");
-        fillPhoneNumber("0881027719810");
-
         Thread.sleep(10000);
 
         fieldClick("//button[@type='submit']");
@@ -441,7 +439,7 @@ public class SignUpTest {
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
-        screenshot();
+        takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -453,9 +451,17 @@ public class SignUpTest {
     }
 
     @Attachment(value = "Screenshot", type = "image/png")
-    public byte[] screenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    public byte[] takeScreenshot() {
+        try {
+            Allure.addAttachment("Hasil test",
+                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+            return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        } catch (Exception e) {
+            System.err.println("Failed to capture screenshot: " + e.getMessage());
+            return null;
+        }
     }
+
 
     @Step("Navigasi ke halaman register akun")
     private void navigateRegisterForm() throws Exception {
@@ -482,9 +488,7 @@ public class SignUpTest {
         navigateCreateAccount.click();
         System.out.println("Clicked Create Account");
 
-        Thread.sleep(5000); // tunggu berpindah dulu baru screenshoot
-        Allure.addAttachment("Halaman sign up muncul setelah di navigasi",
-                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+        Thread.sleep(5000);
 
     }
 
