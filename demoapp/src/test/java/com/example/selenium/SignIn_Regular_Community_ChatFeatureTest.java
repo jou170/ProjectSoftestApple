@@ -44,111 +44,111 @@ public class SignIn_Regular_Community_ChatFeatureTest {
         driver.get("https://www.apple.com/");
     }
 
-    // @Test
-    // @Feature("TC015")
-    // @Description("Sign In Gagal dengan mengisi Email / Phone Number yang salah")
-    // public void test01() throws Exception {
-    //     navigateLoginForm();
+    @Test
+    @Feature("TC015")
+    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang salah")
+    public void test01() throws Exception {
+        navigateLoginForm();
 
-    //     switchToIFrame(0);
+        switchToIFrame(0);
 
-    //     fillEmailAddress("abcdefg");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillEmailAddress("abcdefg");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(3000);
+        Thread.sleep(3000);
 
-    //     fillPassword("abcdefg123");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
-    //     Thread.sleep(3000);
-    //     takeScreenshot();
-    //     Thread.sleep(10000);
-    //     Assert.assertTrue(true);
-    // }
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+        Thread.sleep(3000);
+        takeScreenshot();
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
 
-    // @Test
-    // @Feature("TC016")
-    // @Description("Sign In Gagal dengan mengisi Email / Phone Number yang belum terdaftar")
-    // public void test02() throws Exception {
-    //     navigateLoginForm();
+    @Test
+    @Feature("TC016")
+    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang belum terdaftar")
+    public void test02() throws Exception {
+        navigateLoginForm();
 
-    //     switchToIFrame(0);
+        switchToIFrame(0);
 
-    //     fillEmailAddress("hans.p22@mhs.istts.ac.id");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillEmailAddress("hans.p22@mhs.istts.ac.id");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(3000);
+        Thread.sleep(3000);
 
-    //     fillPassword("abcdefg123");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
-    //     Thread.sleep(3000);
-    //     takeScreenshot();
-    //     Thread.sleep(10000);
-    //     Assert.assertTrue(true);
-    // }
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+        Thread.sleep(3000);
+        takeScreenshot();
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
 
-    // @Test
-    // @Feature("TC017")
-    // @Description("Sign In Gagal Dengan Mengisi Password salah")
-    // public void test03() throws Exception {
-    //     navigateLoginForm();
+    @Test
+    @Feature("TC017")
+    @Description("Sign In Gagal Dengan Mengisi Password salah")
+    public void test03() throws Exception {
+        navigateLoginForm();
 
-    //     switchToIFrame(0);
+        switchToIFrame(0);
 
-    //     fillEmailAddress("xenobladejr@gmail.com");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(3000);
+        Thread.sleep(3000);
 
-    //     fillPassword("abcdefg123");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
-    //     Thread.sleep(3000);
-    //     takeScreenshot();
-    //     Thread.sleep(10000);
-    //     Assert.assertTrue(true);
-    // }
+        fillPassword("abcdefg123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+        Thread.sleep(3000);
+        takeScreenshot();
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
 
-    // @Test
-    // @Feature("TC018")
-    // @Description("Sign In Gagal Dengan Mengisi Verification Code yang salah")
-    // public void test04() throws Exception {
-    //     navigateLoginForm();
+    @Test
+    @Feature("TC018")
+    @Description("Sign In Gagal Dengan Mengisi Verification Code yang salah")
+    public void test04() throws Exception {
+        navigateLoginForm();
 
-    //     switchToIFrame(0);
+        switchToIFrame(0);
 
-    //     fillEmailAddress("xenobladejr@gmail.com");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(3000);
+        Thread.sleep(3000);
 
-    //     fillPassword("Buatsofttest123");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
-    //     Thread.sleep(3000);
-    //     takeScreenshot();
-    //     Thread.sleep(10000);
-    //     Assert.assertTrue(true);
-    // }
+        fillPassword("Buatsofttest123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
+        Thread.sleep(5000);
+        takeScreenshot();
+        Thread.sleep(10000);
+        Assert.assertTrue(true);
+    }
 
-    // @Test
-    // @Feature("TC019")
-    // @Description("Sign In Berhasil")
-    // public void test05() throws Exception {
-    //     navigateLoginForm();
+    @Test
+    @Feature("TC019")
+    @Description("Sign In Berhasil")
+    public void test05() throws Exception {
+        navigateLoginForm();
 
-    //     switchToIFrame(0);
+        switchToIFrame(0);
 
-    //     fillEmailAddress("xenobladejr@gmail.com");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillEmailAddress("xenobladejr@gmail.com");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(3000);
+        Thread.sleep(3000);
 
-    //     fillPassword("Buatsofttest123");
-    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+        fillPassword("Buatsofttest123");
+        fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-    //     Thread.sleep(90000);
-    //     takeScreenshot();
-    //     Thread.sleep(3000);
-    //     Assert.assertTrue(true);
-    // }
+        Thread.sleep(90000);
+        takeScreenshot();
+        Thread.sleep(3000);
+        Assert.assertTrue(true);
+    }
 
     @Test
     @Feature("TC040")
@@ -158,14 +158,14 @@ public class SignIn_Regular_Community_ChatFeatureTest {
 
         fieldClick("//button[@class='localnav-button button button-reduced popup-action-button']");
         switchToIFrame(0);
-        fillEmailAddress("xenobladejr@gmail.com");
+        fillEmailAddress("billie.n22@mhs.istts.ac.id");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(3000);
 
-        fillPassword("Buatsofttest123");
+        fillPassword("Proyek*123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-        Thread.sleep(3000);
+        Thread.sleep(60000);
         takeScreenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
@@ -179,8 +179,10 @@ public class SignIn_Regular_Community_ChatFeatureTest {
 
         fieldClick("//a[normalize-space()='Browse']");
         Thread.sleep(3000);
-        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='How do I cancel my Famio App subscription from the App Store?']");
-        Thread.sleep(3000);
+        Thread.sleep(7000);
+        fieldClick(
+                "/html[1]/body[1]/div[2]/main[1]/section[2]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/th[1]/article[1]/a[1]");
+        Thread.sleep(5000);
         fieldClick("//button[@class='button button-reply']");
         fillTextBox("I don't know");
         fieldClick("//button[normalize-space()='Post']");
@@ -198,8 +200,10 @@ public class SignIn_Regular_Community_ChatFeatureTest {
 
         fieldClick("//a[normalize-space()='Browse']");
         Thread.sleep(3000);
-        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='How do I cancel my Famio App subscription from the App Store?']");
+        fieldClick(
+                "/html[1]/body[1]/div[2]/main[1]/section[2]/div[2]/div[2]/table[1]/tbody[1]/tr[2]/th[1]/article[1]/a[1]");
         Thread.sleep(3000);
+        Thread.sleep(7000);
         fieldClick("//button[@class='button button-reply']");
         fieldClick("//button[normalize-space()='Post']");
         Thread.sleep(3000);
@@ -214,18 +218,23 @@ public class SignIn_Regular_Community_ChatFeatureTest {
         field.click();
     }
 
+    private void fieldClick2(String path) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(path)));
+        field.click();
+    }
+
     @Attachment(value = "Screenshot", type = "image/png")
     public byte[] takeScreenshot() {
         try {
             Allure.addAttachment("Hasil test",
-                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+                    new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
             return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
             return null;
         }
     }
-
 
     @Step("Navigasi ke halaman register akun")
     private void navigateLoginForm() throws Exception {

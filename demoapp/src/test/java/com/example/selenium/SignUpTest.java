@@ -222,9 +222,7 @@ public class SignUpTest {
         selectCountryOptions("+62");
         fillPhoneNumber("081283563500");
 
-        Thread.sleep(10000);
-
-        fieldClick("//button[@type='submit']");
+        // fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
         takeScreenshot();
         Thread.sleep(10000);
@@ -280,9 +278,9 @@ public class SignUpTest {
         selectCountryOptions("+62");
         fillPhoneNumber("081283563500");
 
-        Thread.sleep(10000);
+        // Thread.sleep(10000);
 
-        fieldClick("//button[@type='submit']");
+        // fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
         takeScreenshot();
         Thread.sleep(10000);
@@ -309,9 +307,9 @@ public class SignUpTest {
         selectCountryOptions("+62");
         fillPhoneNumber("081283563500");
 
-        Thread.sleep(10000);
+        // Thread.sleep(10000);
 
-        fieldClick("//button[@type='submit']");
+        // fieldClick("//button[@type='submit']");
         Thread.sleep(3000);
         takeScreenshot();
         Thread.sleep(10000);
@@ -452,14 +450,13 @@ public class SignUpTest {
     public byte[] takeScreenshot() {
         try {
             Allure.addAttachment("Hasil test",
-                new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+                    new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
             return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         } catch (Exception e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
             return null;
         }
     }
-
 
     @Step("Navigasi ke halaman register akun")
     private void navigateRegisterForm() throws Exception {
