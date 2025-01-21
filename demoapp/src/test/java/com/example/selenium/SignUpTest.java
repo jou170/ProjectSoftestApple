@@ -429,13 +429,11 @@ public class SignUpTest {
         fieldClick("//button[@type='submit']");
 
         Thread.sleep(60000);
-        Thread.sleep(100000);
 
         // switchToIFrame(0);
         fieldClick("//button[@type='submit']");
 
         Thread.sleep(60000);
-        Thread.sleep(100000);
 
         fieldClick("//button[@type='submit']");
         Thread.sleep(3000);

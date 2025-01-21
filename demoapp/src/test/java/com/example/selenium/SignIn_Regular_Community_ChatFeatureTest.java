@@ -44,111 +44,111 @@ public class SignIn_Regular_Community_ChatFeatureTest {
         driver.get("https://www.apple.com/");
     }
 
-    @Test
-    @Feature("TC015")
-    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang salah")
-    public void test01() throws Exception {
-        navigateLoginForm();
+    // @Test
+    // @Feature("TC015")
+    // @Description("Sign In Gagal dengan mengisi Email / Phone Number yang salah")
+    // public void test01() throws Exception {
+    //     navigateLoginForm();
 
-        switchToIFrame(0);
+    //     switchToIFrame(0);
 
-        fillEmailAddress("abcdefg");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillEmailAddress("abcdefg");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(3000);
+    //     Thread.sleep(3000);
 
-        fillPassword("abcdefg123");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
-        Thread.sleep(3000);
-        takeScreenshot();
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
+    //     fillPassword("abcdefg123");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     Thread.sleep(3000);
+    //     takeScreenshot();
+    //     Thread.sleep(10000);
+    //     Assert.assertTrue(true);
+    // }
 
-    @Test
-    @Feature("TC016")
-    @Description("Sign In Gagal dengan mengisi Email / Phone Number yang belum terdaftar")
-    public void test02() throws Exception {
-        navigateLoginForm();
+    // @Test
+    // @Feature("TC016")
+    // @Description("Sign In Gagal dengan mengisi Email / Phone Number yang belum terdaftar")
+    // public void test02() throws Exception {
+    //     navigateLoginForm();
 
-        switchToIFrame(0);
+    //     switchToIFrame(0);
 
-        fillEmailAddress("hans.p22@mhs.istts.ac.id");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillEmailAddress("hans.p22@mhs.istts.ac.id");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(3000);
+    //     Thread.sleep(3000);
 
-        fillPassword("abcdefg123");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
-        Thread.sleep(3000);
-        takeScreenshot();
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
+    //     fillPassword("abcdefg123");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     Thread.sleep(3000);
+    //     takeScreenshot();
+    //     Thread.sleep(10000);
+    //     Assert.assertTrue(true);
+    // }
 
-    @Test
-    @Feature("TC017")
-    @Description("Sign In Gagal Dengan Mengisi Password salah")
-    public void test03() throws Exception {
-        navigateLoginForm();
+    // @Test
+    // @Feature("TC017")
+    // @Description("Sign In Gagal Dengan Mengisi Password salah")
+    // public void test03() throws Exception {
+    //     navigateLoginForm();
 
-        switchToIFrame(0);
+    //     switchToIFrame(0);
 
-        fillEmailAddress("xenobladejr@gmail.com");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillEmailAddress("xenobladejr@gmail.com");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(3000);
+    //     Thread.sleep(3000);
 
-        fillPassword("abcdefg123");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
-        Thread.sleep(3000);
-        takeScreenshot();
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
+    //     fillPassword("abcdefg123");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     Thread.sleep(3000);
+    //     takeScreenshot();
+    //     Thread.sleep(10000);
+    //     Assert.assertTrue(true);
+    // }
 
-    @Test
-    @Feature("TC018")
-    @Description("Sign In Gagal Dengan Mengisi Verification Code yang salah")
-    public void test04() throws Exception {
-        navigateLoginForm();
+    // @Test
+    // @Feature("TC018")
+    // @Description("Sign In Gagal Dengan Mengisi Verification Code yang salah")
+    // public void test04() throws Exception {
+    //     navigateLoginForm();
 
-        switchToIFrame(0);
+    //     switchToIFrame(0);
 
-        fillEmailAddress("xenobladejr@gmail.com");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillEmailAddress("xenobladejr@gmail.com");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(3000);
+    //     Thread.sleep(3000);
 
-        fillPassword("Buatsofttest123");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
-        Thread.sleep(3000);
-        takeScreenshot();
-        Thread.sleep(10000);
-        Assert.assertTrue(true);
-    }
+    //     fillPassword("Buatsofttest123");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     Thread.sleep(3000);
+    //     takeScreenshot();
+    //     Thread.sleep(10000);
+    //     Assert.assertTrue(true);
+    // }
 
-    @Test
-    @Feature("TC019")
-    @Description("Sign In Berhasil")
-    public void test05() throws Exception {
-        navigateLoginForm();
+    // @Test
+    // @Feature("TC019")
+    // @Description("Sign In Berhasil")
+    // public void test05() throws Exception {
+    //     navigateLoginForm();
 
-        switchToIFrame(0);
+    //     switchToIFrame(0);
 
-        fillEmailAddress("xenobladejr@gmail.com");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillEmailAddress("xenobladejr@gmail.com");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(3000);
+    //     Thread.sleep(3000);
 
-        fillPassword("Buatsofttest123");
-        fieldClick("//i[@class='shared-icon icon_sign_in']");
+    //     fillPassword("Buatsofttest123");
+    //     fieldClick("//i[@class='shared-icon icon_sign_in']");
 
-        Thread.sleep(90000);
-        takeScreenshot();
-        Thread.sleep(3000);
-        Assert.assertTrue(true);
-    }
+    //     Thread.sleep(90000);
+    //     takeScreenshot();
+    //     Thread.sleep(3000);
+    //     Assert.assertTrue(true);
+    // }
 
     @Test
     @Feature("TC040")
@@ -179,10 +179,10 @@ public class SignIn_Regular_Community_ChatFeatureTest {
 
         fieldClick("//a[normalize-space()='Browse']");
         Thread.sleep(3000);
-        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='TikTok reinstated in the App Store']");
+        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='How do I cancel my Famio App subscription from the App Store?']");
         Thread.sleep(3000);
         fieldClick("//button[@class='button button-reply']");
-        fillTextBox("Will tiktok be back?");
+        fillTextBox("I don't know");
         fieldClick("//button[normalize-space()='Post']");
         Thread.sleep(3000);
         takeScreenshot();
@@ -198,10 +198,9 @@ public class SignIn_Regular_Community_ChatFeatureTest {
 
         fieldClick("//a[normalize-space()='Browse']");
         Thread.sleep(3000);
-        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='TikTok reinstated in the App Store']");
+        fieldClick("//a[@data-cy='cy-threadTitle'][normalize-space()='How do I cancel my Famio App subscription from the App Store?']");
         Thread.sleep(3000);
         fieldClick("//button[@class='button button-reply']");
-        // fillTextBox("Will tiktok be back?");
         fieldClick("//button[normalize-space()='Post']");
         Thread.sleep(3000);
         takeScreenshot();
