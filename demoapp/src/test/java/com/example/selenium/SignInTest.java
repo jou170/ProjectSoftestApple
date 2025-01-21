@@ -59,7 +59,8 @@ public class SignInTest {
 
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -79,7 +80,8 @@ public class SignInTest {
 
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -99,7 +101,8 @@ public class SignInTest {
 
         fillPassword("abcdefg123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -119,7 +122,8 @@ public class SignInTest {
 
         fillPassword("Buatsofttest123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -141,6 +145,8 @@ public class SignInTest {
         fieldClick("//i[@class='shared-icon icon_sign_in']");
 
         Thread.sleep(90000);
+        screenshot();
+        Thread.sleep(3000);
         Assert.assertTrue(true);
     }
 
@@ -159,7 +165,8 @@ public class SignInTest {
 
         fillPassword("Buatsofttest123");
         fieldClick("//i[@class='shared-icon icon_sign_in']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -177,7 +184,8 @@ public class SignInTest {
         fieldClick("//button[@class='button button-reply']");
         fillTextBox("Will tiktok be back?");
         fieldClick("//button[normalize-space()='Post']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }
@@ -195,7 +203,8 @@ public class SignInTest {
         fieldClick("//button[@class='button button-reply']");
         // fillTextBox("Will tiktok be back?");
         fieldClick("//button[normalize-space()='Post']");
-
+        Thread.sleep(3000);
+        screenshot();
         Thread.sleep(10000);
         Assert.assertTrue(true);
     }

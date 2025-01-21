@@ -47,6 +47,8 @@ public class NavigationTest {
     public void test1() throws Exception {
         Thread.sleep(3000);
         fieldClick("//a[@aria-label='iPad']//span[@class='globalnav-link-text-container']");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -56,6 +58,8 @@ public class NavigationTest {
     public void test2() throws Exception {
         Thread.sleep(3000);
         fieldClick("//a[normalize-space()='Apple Fitness+']");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
@@ -65,6 +69,8 @@ public class NavigationTest {
     public void test3() throws Exception {
         Thread.sleep(3000);
         fieldClick("//a[@aria-label='Learn more, iPhone 16 Pro']");
+        Thread.sleep(3000);
+        takeScreenshot();
         Thread.sleep(10000);
     }
 
